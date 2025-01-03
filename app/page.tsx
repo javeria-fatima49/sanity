@@ -1,101 +1,270 @@
+// import Image from "next/image";
+// import { client } from "@/sanity/lib/client";
+// import { urlFor } from "@/sanity/lib/image";
+// // import Header from "./component/Header";
+// export default async function Home() {
+//   const query=`*[_type == "homepage"][0]{
+//   heading,
+//     paragraph,
+//     buttonText,
+//     image,
+//     images
+// }`
+// const sanityData = await client.fetch(query)
+// console.log("sanity Data:",sanityData);
+//   return (
+//     <div className="">
+//       <div className="flex flex-col items-center lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-10">
+//     <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mt-4 sm:mt-6">
+//       FIND CLOTHES THAT MATCH YOUR STYLE
+//     </h1>
+//     <p className="text-black mt-2 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+//       Browse through our diverse range of meticulously crafted garments,
+//       designed to bring out your individuality and cater to your sense of
+//       style.
+//     </p>
+//     <button className="mt-4 sm:mt-6 bg-black hover:bg-gray-900 text-white font-bold rounded-full w-36 sm:w-40 md:w-48 h-10 sm:h-12 md:h-14 text-sm sm:text-base md:text-lg">
+//       Shop Now
+//     </button>
+//     <div className="flex mt-6 gap-4 justify-between items-center">
+//       <div>
+//         <h3 className="text-black text-xl font-bold">200+</h3>
+//         <p className="text-black text-sm">International Brands</p>
+//       </div>
+//       <div>
+//         <h3 className="text-black text-xl font-bold">2,000+</h3>
+//         <p className="text-black text-sm">High-Quality Products</p>
+//       </div>
+//       <div>
+//         <h3 className="text-black text-xl font-bold">30,000+</h3>
+//         <p className="text-black text-sm">Happy Customers</p>
+//       </div>
+//     </div>
+//   </div>
+//       <Image
+//       src={urlFor(sanityData.image).url()}
+//       alt="responsive"
+//       width={1600}
+//       height={400}/>
+//             <div>
+//             {sanityData.images.map(() => (
+//           <Image
+//       src={urlFor(sanityData.images).url()}
+//       alt="responsive"
+//       width={90}
+//       height={40}/>))}</div>
+//       <h2 className="font-bold text-2xl">{sanityData.heading}</h2>
+//       <p>{sanityData.paragraph}</p>
+//       <button className="border-4">{sanityData.buttonText}</button>
+      
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+// import Image from "next/image";
+// import { client } from "@/sanity/lib/client";
+// import { urlFor } from "@/sanity/lib/image";
+
+// export default async function Home() {
+//   const query = `*[_type == "homepage"][0]{
+//     heading,
+//     paragraph,
+//     buttonText,
+//     image,
+//     images,
+//   }`;
+//   const query = `*[_type == "newarrivals"][0]{
+//    title,
+//     image,
+//     images,
+//   }`;
+//   const sanityData = await client.fetch(query);
+//   console.log("sanity Data:", sanityData);
+
+//   return (
+//     <div>
+//       <div className="flex flex-col items-center lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-10">
+//         <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mt-4 sm:mt-6">
+//           FIND CLOTHES THAT MATCH YOUR STYLE
+//         </h1>
+//         <p className="text-black mt-2 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+//           Browse through our diverse range of meticulously crafted garments,
+//           designed to bring out your individuality and cater to your sense of
+//           style.
+//         </p>
+//         <button className="mt-4 sm:mt-6 bg-black hover:bg-gray-900 text-white font-bold rounded-full w-36 sm:w-40 md:w-48 h-10 sm:h-12 md:h-14 text-sm sm:text-base md:text-lg">
+//           Shop Now
+//         </button>
+//         <div className="flex mt-6 gap-4 justify-between items-center">
+//           <div>
+//             <h3 className="text-black text-xl font-bold">200+</h3>
+//             <p className="text-black text-sm">International Brands</p>
+//           </div>
+//           <div>
+//             <h3 className="text-black text-xl font-bold">2,000+</h3>
+//             <p className="text-black text-sm">High-Quality Products</p>
+//           </div>
+//           <div>
+//             <h3 className="text-black text-xl font-bold">30,000+</h3>
+//             <p className="text-black text-sm">Happy Customers</p>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Main Image */}
+//       <Image
+//         src={urlFor(sanityData.image).url()}
+//         alt="responsive"
+//         width={1600}
+//         height={400}
+//       />
+
+//       {/* Multiple Images */}
+//       <div className="bg-black py-6 h-auto flex  justify-around">
+//         {sanityData.images?.map((image: any, index: number) => (
+//           <Image
+//             key={index}
+//             src={urlFor(image).url()}
+//             alt={`image-${index}`}
+//             width={100}
+//             height={150}
+            
+//           />
+//         ))}
+//       </div>
+// <h1 className="font-bold text-2xl text-white">{sanityData.title}</h1>
+//       {/* Heading and Paragraph */}
+//       {/* <div>
+//       {sanityData.imagess?.map((image: any, index: number) => (
+//           <Image
+//             key={index}
+//             src={urlFor(image).url()}
+//             alt={`image-${index}`}
+//             width={100}
+//             height={150}
+            
+//           />
+//         ))}
+//       </div> */}
+//       <h2 className="font-bold text-2xl">{sanityData.heading}</h2>
+//       <p>{sanityData.paragraph}</p>
+//       <button className="border-4">{sanityData.buttonText}</button>
+//     </div>
+//   );
+// }
+
+
+
+
 import Image from "next/image";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
-export default function Home() {
+export default async function Home() {
+  // Define two separate queries
+  const homepageQuery = `*[_type == "homepage"][0]{
+    heading,
+    paragraph,
+    buttonText,
+    image,
+    images,
+  }`;
+  
+  const newArrivalsQuery = `*[_type == "newarrivals"][0]{
+    title,
+    image,
+    price,
+  }`;
+
+  // Fetch data for both queries
+  const homepageData = await client.fetch(homepageQuery);
+  const newArrivalsData = await client.fetch(newArrivalsQuery);
+
+  console.log("Homepage Data:", homepageData);
+  console.log("New Arrivals Data:", newArrivalsData); // Debugging line
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div>
+      {/* Homepage Section */}
+      <div className="flex flex-col items-center lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-10">
+        <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mt-4 sm:mt-6">
+          FIND CLOTHES THAT MATCH YOUR STYLE
+        </h1>
+        <p className="text-black mt-2 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+          Browse through our diverse range of meticulously crafted garments,
+          designed to bring out your individuality and cater to your sense of
+          style.
+        </p>
+        <button className="mt-4 sm:mt-6 bg-black hover:bg-gray-900 text-white font-bold rounded-full w-36 sm:w-40 md:w-48 h-10 sm:h-12 md:h-14 text-sm sm:text-base md:text-lg">
+          Shop Now
+        </button>
+        <div className="flex mt-6 gap-4 justify-between items-center">
+          <div>
+            <h3 className="text-black text-xl font-bold">200+</h3>
+            <p className="text-black text-sm">International Brands</p>
+          </div>
+          <div>
+            <h3 className="text-black text-xl font-bold">2,000+</h3>
+            <p className="text-black text-sm">High-Quality Products</p>
+          </div>
+          <div>
+            <h3 className="text-black text-xl font-bold">30,000+</h3>
+            <p className="text-black text-sm">Happy Customers</p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      </div>
+
+      {/* Main Image */}
+      <Image
+        src={urlFor(homepageData.image).url()}
+        alt="homepage-responsive"
+        width={1600}
+        height={400}
+      />
+
+      {/* Multiple Images */}
+      <div className="bg-black py-6 h-auto flex justify-around">
+        {homepageData.images?.map((image: any, index: number) => (
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            key={index}
+            src={urlFor(image).url()}
+            alt={`image-${index}`}
+            width={100}
+            height={150}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        ))}
+      </div>
+
+      {/* New Arrivals Section */}
+      <h1 className="font-bold text-2xl text-white">
+        {newArrivalsData?.title || "New Arrivals"}
+      </h1>
+      <div className="flex gap-4 justify-around">
+        {newArrivalsData?.image?.map((image: any, index: number) => (
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            key={index}
+            src={urlFor(image).url()}
+            alt={`new-arrival-image-${index}`}
+            width={450}
+            height={450}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        ))}
+      </div>
+      <p className="text-white">Price: {newArrivalsData?.price}</p>
+
+      {/* Homepage Heading and Paragraph */}
+      <h2 className="font-bold text-2xl">{homepageData.heading}</h2>
+      <p>{homepageData.paragraph}</p>
+      <button className="border-4">{homepageData.buttonText}</button>
     </div>
   );
 }
+
